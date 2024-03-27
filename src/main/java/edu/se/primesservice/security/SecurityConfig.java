@@ -56,10 +56,8 @@ public class SecurityConfig {
                 .cors(Customizer.withDefaults())
                 .csrf(x -> x.disable())
                 .authorizeHttpRequests( auth -> auth
-                        .requestMatchers(
-                                AntPathRequestMatcher.antMatcher(HttpMethod.POST,"/register"),
-                                AntPathRequestMatcher.antMatcher(HttpMethod.POST,"/login")
-                        ).permitAll()
+                        .requestMatchers(HttpMethod.POST,"/register","/login")
+                        .permitAll()
                         .anyRequest().authenticated())
                 .sessionManagement(session ->
                         session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
