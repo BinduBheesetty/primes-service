@@ -15,6 +15,7 @@ public class PrimesService implements IPrimesService{
                 return false;
             }
         }
+
         return true;
     }
 }
